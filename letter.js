@@ -13,8 +13,9 @@ Letter = function (character, guessed) {
             console.log(this.guessed)
         }
 };
-module.exports = {
-    Letter: Letter
-};
+module.exports = Letter; 
+// {
+    // Letter: Letter
+// };
 // var letter =new Letter("h",false);
 //   letter.guessCharacter("o");  
