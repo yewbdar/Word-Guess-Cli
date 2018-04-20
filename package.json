@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/yewbdar/Word-Guess-Cli#readme",
   "dependencies": {
+    "colors": "^1.2.1",
     "inquirer": "^5.2.0",
     "require": "^2.4.20",
     "uglify-js": "^3.3.20"

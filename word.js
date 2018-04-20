@@ -1,33 +1,26 @@
-var Letter = require("./Letter.js");
-
-module.exports= function (word){
-    
+var Letter = require("./letter.js");
+module.exports = function (word){
     this.letters=[],
-    
     this.word=word,
-    
-    this.init = function (){
-       
-        for(var i=0; i<this.word.length; i++){
-            
-            var char = new Letter(this.word[i])
+    this.previousGuess = [],
+    this.init = function() {
+        this.word.split("").map(letter =>{
+            var char = new Letter(letter,false);
             this.letters.push(char);
-        }
-    }
-    var concat = "";
-    this.checkWord = function(){
-        this.letters.map(letter => {
-            concat += letter.isGuessed(letter.character)+" ";
+            this.previousGuess.push("_");
         });
-        console.log(concat);
+    },
+    this.checkWord = function(){
+        this.letters.map((letter,index) => {
+             this.previousGuess[index] = letter.isGuessed(letter.character);
+        });
+        return this.previousGuess;
     },
     this.guessCharacters = function (char){
         this.letters.map(letter => {
-            letter.guessCharacter(char);
-            
+            if (!letter.guessed) {
+                letter.guessCharacter(char);
+            }
         });
-        
     }
 };
-
-
