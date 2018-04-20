@@ -3,7 +3,7 @@ var inquirer = require("inquirer");
 var colors = require('colors');
 var picRandomWord = function () {
  
-    var words = ["beautifull", "javascript","introduction","good morning","wikipedia"];
+    var words = ["beautifull", "javascript","introduction","technology","wikipedia"];
     var i = Math.floor(Math.random() * 5);
     return words[i];
 }
@@ -31,31 +31,31 @@ function acceptLetter() {
             }
         }
         if (trueCount === numOfWord) {
-            console.log("You won !".green)
+            console.log("You won !\n".green)
             console.log(sampleWord.checkWord().join(" "));
             playAgain();
         }
         else if ((initialFalseCount - falseCount) >= 1) {
-            console.log("Correct guess".green)
-            console.log(geussCount + " remaining chance")
-            console.log(sampleWord.checkWord().join(" "));
+            console.log("Correct guess\n".green)
+            console.log(geussCount + " remaining chance\n")
+            console.log(sampleWord.checkWord().join(" ")+"\n");
             initialFalseCount -= (initialFalseCount - falseCount);
             if (geussCount !== 0) {
                 acceptLetter();
             } else {
-                console.log("You lose !".red)
+                console.log("You lose !\n".red)
                 playAgain();
             }
         }
         else {
             geussCount -= 1;
-            console.log("Incorrect guess".red)
-            console.log(geussCount + " remaining chance")
-            console.log(sampleWord.checkWord().join(" "));
+            console.log("Incorrect guess\n".red)
+            console.log(geussCount + " remaining chance\n")
+            console.log(sampleWord.checkWord().join(" ")+"\n");
             if (geussCount !== 0) {
                 acceptLetter();
             } else {
-                console.log("You lose !".red)
+                console.log("You lose !\n".red)
                 playAgain();
             }
         }
